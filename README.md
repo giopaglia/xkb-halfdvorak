@@ -3,6 +3,23 @@ XKB half-dvorak
 
 An annotated half-dvorak keyboard layout for the X Keyboard Extension.
 
+About **half-dvorak**
+-----------------
+
+As far as I know, there is currently no dvorak counterpart to any half-qwerty layout.
+Chances are you ended up here because you were in fact looking for one!
+This repo contains the dvorak counterpart of [jorissteyn's half-qwerty layout](https://github.com/jorissteyn/xkb-halfqwerty/).
+Compared to that original project, I'm also providing a safe, automated installation process.
+After installing, three new layouts will be available to xkb:
+
++	English (US, half-dvorak)
++ English (US, half-dvorak using caps modifier)
++ English (US, half-dvorak assuming space modifier)
+
+Of these, however, only the second layout works out-of-the-box, whereas the other two need
+further steps for configuration. For the purpose, the layout's source code ([halfqwerty.xkb](halfqwerty.xkb)) is super informative, and it explains different ways of putting itself to use.
+
+
 About half-qwerty
 -----------------
 
@@ -21,14 +38,6 @@ pioneered the concept and his
 [research paper](http://edgarmatias.com/papers/hci96/) on half-qwerty
 is an excellent source for further reading on the matter.
 
-About **half-dvorak**
------------------
-
-As far as I know, there is currently no dvorak counterpart to any half-qwerty layout.
-Chances are you ended up here because you were in fact looking for one!
-This repo contains the dvorak counterpart of [jorissteyn's half-qwerty layout](https://github.com/jorissteyn/xkb-halfqwerty/).
-Compared with that original project, I'm also providing a safe, automated installation process.
-
 Software solutions for Linux
 ----------------------------
 
@@ -37,7 +46,7 @@ Extension, or XKB, which can be used to create half-dvorak and half-qwerty layou
 A well-known half-qwerty configuration for XKB is
 [mirrorboard](https://blog.xkcd.com/2007/08/14/mirrorboard-a-one-handed-keyboard-layout-for-the-lazy/)
 created by XKCD's Randall Munroe.
-The configuration in [jorissteyn's repository](https://github.com/jorissteyn/xkb-halfqwerty/blob/master/halfqwerty.xkb) has some advantages over mirrorboard:
+The configuration in [jorissteyn's repository](https://github.com/jorissteyn/xkb-halfqwerty) has some advantages over mirrorboard:
 
  - the configuration is abundantly annotated
  - it contains a base layout that isn't biased towards a specific
@@ -72,23 +81,7 @@ sudo ./install.sh
 ```
 
 This will save your xkb configuration (default path: `/usr/share/X11/xkb`) in an archive named xkb-backup-\*.tar.gz, and will apply a patch containing the new configuration files.
-
-Next, the following new keyboard layouts will be available:
-
-
-+ Dvorak-Qwerty
-+ Dvorak-Qwerty simplified (no dead keys)
-+ Dvorak-Qwerty, international with dead keys
-+ Dvorak-Qwerty alternative international no dead keys
-+ Dvorak-Qwerty, classic
-+ Dvorak-Qwerty, programmer
-
-You can select them via `setxkbmap` (or your Desktop Evironment settings).
-
-This file is just a front cover, the actual README is the
-configuration itself. Start reading it! Some tech-savviness is
-required, but you're still here so I guess that's not a problem.
-
+The half-dvorak layouts will then be available, and you can select them via `setxkbmap` (or your Desktop Evironment settings).
 
 Feedback
 --------

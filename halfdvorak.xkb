@@ -1,134 +1,118 @@
 default partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
-    name[Group1] = "English (US, halfqwerty)" ;
+    name[Group1] = "English (US, half-dvorak)" ;
 
-    // This default halfqwerty layout can be used as a base for your
-    // one-hand typing needs. It defines a mirrored qwerty layout on
+    // This default half-dvorak layout can be used as a base for your
+    // one-hand typing needs. It defines a mirrored dvorak layout on
     // the third shift level for almost all keys.
     //
     // Due to the limited available space on just half of a keyboard,
     // the following keys have no mirrored mapping:
     //
-    // - leftbracket, rightbracket, backslash
+    // - TODO leftbracket, rightbracket, backslash
     // - arrow keys (who needs those?)
     // - home, end, page up/down
     // - delete
     //
-    // In order to make the halfqwerty layout available to the X
-    // Keyboard Extension, copy halfqwerty.xkb to the symbols folder
-    // of XKB, usually done like this:
-    //
-    //    $ sudo cp halfqwerty.xkb /usr/share/X11/xkb/symbols/halfqwerty
-    //    (note: drop the .xkb file extension)
-    //
-    // You can now try the layout with 'setxkbmap -layout halfqwerty'.
-    //
-    // In order to make the halfqwerty layout available to the
-    // keyboard configuration of your desktop environment, modify the
-    // XKB rules of your system:
-    //
-    //    - open /usr/share/X11/xkb/rules/evdev.xml in your favourite text editor
-    //    - find the <layoutList> element
-    //    - add the halfqwerty layout:
-    //
-    //         <layout>
-    //           <configItem>
-    //             <name>halfqwerty</name>
-    //             <description>English (US, halfqwerty)</description>
-    //             <languageList>
-    //               <iso639Id>eng</iso639Id>
-    //             </languageList>
-    //           </configItem>
-    //           <variantList>
-    //             <variant>
-    //               <configItem>
-    //                 <name>caps</name>
-    //                 <description>English (US, halfqwerty using caps modifier)</description>
-    //               </configItem>
-    //             </variant>
-    //             <variant>
-    //               <configItem>
-    //                 <name>space</name>
-    //                 <description>English (US, halfqwerty assuming space modifier)</description>
-    //               </configItem>
-    //             </variant>
-    //           </variantList>
-    //         </layout>
-    //
+
     // You have three options to actually start one-handed typing:
     //
     // 1. Use this basic layout and map your own preferred key (or
     //    pedal, of course) to ISO_Level3_Shift.
     //
-    // 2. Use the halfqwerty(caps) variant and start one-handed typing
-    //    right away, similar to Randall Munroes 'mirrorboard':
+    // 2. Use the halfdvorak(caps) variant and start one-handed typing
+    //    right away, similar to Randall Munroes (QWERTY) 'mirrorboard':
     //
     //    See https://blog.xkcd.com/2007/08/14/mirrorboard-a-one-handed-keyboard-layout-for-the-lazy/
     //
-    //    Note that our halfqwerty layout differs slightly from the
+    //    Note that our half-dvorak layout differs slightly from the
     //    one explained in the XKCD blog post. See inline
     //    documentation below.
     //
-    // 3. Use the halfqwerty(space) variant which allows using the
+    // 3. Use the halfdvorak(space) variant which allows using the
     //    space bar to switch to the mirrored layout. This variant
     //    requires additional configuration, see inline documentation
     //    below.
     
     include "level3(modifier_mapping)"
 
+
+    // NUM ROW
+    // `123456   7890[]
+    // ~!@#$%^   &*(){}
+    
     key <TLDE> { [        grave,  asciitilde,      grave,  asciitilde ] } ;
 
-    key <AE01> { [            1,      exclam,      equal,        plus ] } ;
-    key <AE02> { [            2,          at,      minus,  underscore ] } ;
-    key <AE03> { [            3,  numbersign,          0,  parenright ] } ;
-    key <AE04> { [            4,      dollar,          9,   parenleft ] } ;
-    key <AE05> { [            5,     percent,          8,    asterisk ] } ;
-    key <AE06> { [            6, asciicircum,          7,   ampersand ] } ;
-    key <AE07> { [            7,   ampersand,          6, asciicircum ] } ;
-    key <AE08> { [            8,    asterisk,          5,     percent ] } ;
-    key <AE09> { [            9,   parenleft,          4,      dollar ] } ;
-    key <AE10> { [            0,  parenright,          3,  numbersign ] } ;
-    key <AE11> { [        minus,  underscore,          2,          at ] } ;
-    key <AE12> { [        equal,        plus,          1,      exclam ] } ;
+    key <AE01> { [            1,      exclam, bracketright,      braceright ] } ;
+    key <AE02> { [            2,          at,  bracketleft,       braceleft ] } ;
+    key <AE03> { [            3,  numbersign,            0,      parenright ] } ;
+    key <AE04> { [            4,      dollar,            9,       parenleft ] } ;
+    key <AE05> { [            5,     percent,            8,        asterisk ] } ;
+    key <AE06> { [            6, asciicircum,            7,       ampersand ] } ;
+    
+    key <AE07> { [            7,   ampersand,            6,     asciicircum ] } ;
+    key <AE08> { [            8,    asterisk,            5,         percent ] } ;
+    key <AE09> { [            9,   parenleft,            4,          dollar ] } ;
+    key <AE10> { [            0,  parenright,            3,      numbersign ] } ;
+    key <AE11> { [  bracketleft,   braceleft,            2,              at ] } ;
+    key <AE12> { [ bracketright,  braceright,            1,          exclam ] } ;
 
-    key <AD01> { [            q,           Q,          p,           P ] } ;
-    key <AD02> { [            w,           W,          o,           O ] } ;
-    key <AD03> { [            e,           E,          i,           I ] } ;
-    key <AD04> { [            r,           R,          u,           U ] } ;
-    key <AD05> { [            t,           T,          y,           Y ] } ;
-    key <AD06> { [            y,           Y,          t,           T ] } ;
-    key <AD07> { [            u,           U,          r,           R ] } ;
-    key <AD08> { [            i,           I,          e,           E ] } ;
-    key <AD09> { [            o,           O,          w,           W ] } ;
-    key <AD10> { [            p,           P,          q,           Q ] } ;
-    key <AD11> { [  bracketleft,   braceleft                          ] } ;
-    key <AD12> { [ bracketright,  braceright                          ] } ;
+    
+    // QWERTY ROW
+    // ',.py fgcrl/=
+    // "<>PY FGCRL?+
 
-    key <AC01> { [            a,           A,  semicolon,       colon ] } ;
-    key <AC02> { [            s,           S,          l,           L ] } ;
-    key <AC03> { [            d,           D,          k,           K ] } ;
-    key <AC04> { [            f,           F,          j,           J ] } ;
-    key <AC05> { [            g,           G,          h,           H ] } ;
-    key <AC06> { [            h,           H,          g,           G ] } ;
-    key <AC07> { [            j,           J,          f,           F ] } ;
-    key <AC08> { [            k,           K,          d,           D ] } ;
-    key <AC09> { [            l,           L,          s,           S ] } ;
-    key <AC10> { [    semicolon,       colon,          a,           A ] } ;
-    key <AC11> { [   apostrophe,    quotedbl                          ] } ;
+    key <AD01> { [   apostrophe,    quotedbl,           l,           L ] } ;
+    key <AD02> { [        comma,        less,           r,           R ] } ;
+    key <AD03> { [       period,     greater,           c,           C ] } ;
+    key <AD04> { [            p,           P,           g,           G ] } ;
+    key <AD05> { [            y,           Y,           f,           F ] } ;
 
-    key <AB01> { [            z,           Z,      slash,    question ] } ;
-    key <AB02> { [            x,           X,     period,     greater ] } ;
-    key <AB03> { [            c,           C,      comma,        less ] } ;
-    key <AB04> { [            v,           V,          m,           M ] } ;
-    key <AB05> { [            b,           B,          n,           N ] } ;
-    key <AB06> { [            n,           N,          b,           B ] } ;
-    key <AB07> { [            m,           M,          v,           V ] } ;
-    key <AB08> { [        comma,        less,          c,           C ] } ;
-    key <AB09> { [       period,     greater,          x,           X ] } ;
-    key <AB10> { [        slash,    question,          z,           Z ] } ;
+    key <AD06> { [            f,           F,           y,           Y ] } ;
+    key <AD07> { [            g,           G,           p,           P ] } ;
+    key <AD08> { [            c,           C,      period,     greater ] } ;
+    key <AD09> { [            r,           R,       comma,        less ] } ;
+    key <AD10> { [            l,           L,  apostrophe,    quotedbl ] } ;
+    key <AD11> { [        slash,    question                           ] } ;
+    key <AD12> { [        equal,        plus                           ] } ;
 
-    key <BKSL> { [    backslash,         bar                          ] } ;
+    // ASDFG ROW
+    // aoeui dhtns-\
+    // AOEUI DHTNS_|
+
+    key <AC01> { [            a,           A,          s,           S ] } ;
+    key <AC02> { [            o,           O,          n,           N ] } ;
+    key <AC03> { [            e,           E,          t,           T ] } ;
+    key <AC04> { [            u,           U,          h,           H ] } ;
+    key <AC05> { [            i,           I,          d,           D ] } ;
+
+    key <AC06> { [            d,           D,          i,           I ] } ;
+    key <AC07> { [            h,           H,          u,           U ] } ;
+    key <AC08> { [            t,           T,          e,           E ] } ;
+    key <AC09> { [            n,           N,          o,           O ] } ;
+    key <AC10> { [            s,           S,          a,           A ] } ;
+    key <AC11> { [        minus,  underscore                          ] } ;
+    // key <AC12> { [    backslash,         bar                          ] } ;
+
+    // ZXCVBN ROW
+    // \;qjkx bmwvz
+    // |:QJKX BMWVZ
+
+    key <BKSL> { [    backslash,         bar,          z,           Z ] } ;
+    key <AB01> { [    semicolon,       colon,          v,           V ] } ;
+    key <AB02> { [            q,           Q,          w,           W ] } ;
+    key <AB03> { [            j,           J,          m,           M ] } ;
+    key <AB04> { [            k,           K,          b,           B ] } ;
+    key <AB05> { [            x,           X,          x,           X ] } ;
+
+    key <AB06> { [            b,           B,          k,           K ] } ;
+    key <AB07> { [            m,           M,          j,           J ] } ;
+    key <AB08> { [            w,           W,          q,           Q ] } ;
+    key <AB09> { [            v,           V,  semicolon,       colon ] } ;
+    key <AB10> { [            z,           Z,  backslash,         bar ] } ;
+
+    // FUNCTION KEYS ROW
 
     key <FK01> { [           F1,          F1,        F12,        F12  ] } ;
     key <FK02> { [           F2,          F2,        F11,        F11  ] } ;
@@ -137,6 +121,7 @@ xkb_symbols "basic" {
     key <FK05> { [           F5,          F5,         F8,         F8  ] } ;
     key <FK06> { [           F6,          F6,         F7,         F7  ] } ;
     key <FK07> { [           F7,          F7,         F6,         F6  ] } ;
+
     key <FK08> { [           F8,          F8,         F5,         F5  ] } ;
     key <FK09> { [           F9,          F9,         F4,         F4  ] } ;
     key <FK10> { [          F10,         F10,         F3,         F3  ] } ;
@@ -147,7 +132,7 @@ xkb_symbols "basic" {
 partial modifier_keys
 xkb_symbols "caps" {
 
-    // The halfqwerty(caps) layout works out-of-the-box requiring no
+    // The halfdvorak(caps) layout works out-of-the-box requiring no
     // additional tooling or configuration. Instead of leaving it up
     // to the user to define a level3 shift modifier it defines the
     // caps lock key as such a modifier.
@@ -163,9 +148,9 @@ xkb_symbols "caps" {
     //    | CAPS + space     | return    |
     //    |------------------+-----------|
 
-    include "halfqwerty(basic)"
+    include "halfdvorak(basic)"
 
-    name[Group1] = "English (US, halfqwerty using caps modifier)" ;
+    name[Group1] = "English (US, half-dvorak using caps modifier)" ;
 
     include "level3(caps_switch)"
 
@@ -173,7 +158,7 @@ xkb_symbols "caps" {
 
     // As a general rule we try to not change any key behaviour
     // compared to the default us layout, unless the user triggers the
-    // half-qwerty layout. This tilde=backspace mapping breaks the
+    // half-dvorak layout. This tilde=backspace mapping breaks the
     // rule, because caps+tilde to correct a mistake is too cumbersome
     // to press.
     key <TLDE> { [    BackSpace,  asciitilde,      grave,  asciitilde ] } ;
@@ -205,7 +190,7 @@ xkb_symbols "space" {
     // See the at-home-modifier wiki page for more information:
     //   https://gitlab.com/at-home-modifier/at-home-modifier-evdev/wikis/home
     //
-    // The halfqwerty(space) layout assumes a transmod setting mapping
+    // The halfdvorak(space) layout assumes a transmod setting mapping
     // the space bar to ISO_Level3_Shift:
     //
     //   Option "TransMod" "65:92"
@@ -239,9 +224,9 @@ xkb_symbols "space" {
     // special care to release the space bar before pressing a regular
     // key.
 
-    include "halfqwerty(basic)"
+    include "halfdvorak(basic)"
 
-    name[Group1] = "English (US, halfqwerty assuming space modifier)" ;
+    name[Group1] = "English (US, half-dvorak assuming space modifier)" ;
 
     key <CAPS> {
         type    [ Group1 ] = "THREE_LEVEL",

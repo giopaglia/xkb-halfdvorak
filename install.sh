@@ -19,7 +19,7 @@ chown $DIRECTORY_OWNER -R $NAME
 echo "Applying patch containing half-dvorak configuration"
 cp halfdvorak.xkb $CONF/symbols/halfdvorak
 diff -Nar -C10 xkb-data-orig xkb-data-mod > file.patch
-# patch --dry-run --verbose -p1 -d $CONF < file.patch
-patch -p1 -d $CONF < file.patch
+# patch --forward --dry-run --verbose -p1 -d $CONF < file.patch
+patch --forward -p1 -d $CONF < file.patch
 
 exit 0

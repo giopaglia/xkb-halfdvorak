@@ -233,6 +233,8 @@ xkb_symbols "space" {
 
         // When not using caps lock as a modifier, we can use it as a
         // symmetrical counterpart to the apostrophe/quotedbl key.
+        // symbols [ Group1 ] = [ Caps_Lock, Caps_Lock, Return, Return ],
+        // TODO symbols [ Group1 ] = [ RedirectKey(key=<CAPS>), RedirectKey(key=<CAPS>), Return, Return ],
         symbols [ Group1 ] = [ Return, Return, apostrophe, quotedbl ],
 
         // When mapping <CAPS> to a modifier like done in
